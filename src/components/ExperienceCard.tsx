@@ -16,10 +16,7 @@ export function ExperienceCard(props: ExperienceCardProps) {
         <h5>
           {experience.title} - {experience.years}
         </h5>
-        <div
-          className="logo"
-          style={{ backgroundImage: "url('" + experience.image + "')" }}
-        ></div>
+        <div className="logo" style={{ backgroundImage: "url('" + experience.image + "')" }}></div>
         {experience.description && <p>{experience.description}</p>}
       </CardBody>
     </Card>

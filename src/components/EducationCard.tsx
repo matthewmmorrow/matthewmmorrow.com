@@ -16,10 +16,7 @@ export function EducationCard(props: EducationCardProps) {
         <h5>
           {education.title} - {education.years}
         </h5>
-        <div
-          className="logo"
-          style={{ backgroundImage: "url('" + education.image + "')" }}
-        ></div>
+        <div className="logo" style={{ backgroundImage: "url('" + education.image + "')" }}></div>
         {education.description && <p>{education.description}</p>}
       </CardBody>
     </Card>
