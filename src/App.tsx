@@ -17,52 +17,50 @@ import {
   PhoneIcon,
 } from "@heroicons/react/24/solid";
 
-function scrollElement(name: string) {}
+function scrollElement(id: string) {
+  let element = document.getElementById(id);
+  if (element) {
+    window.scroll(0, element.offsetTop - 68);
+  }
+}
 
 function App() {
   const resume = MyResume;
 
-  const menuList = (
-    <MenuList>
-      <MenuItem>
-        <button md-menu-item onClick={() => scrollElement("skills")}>
-          {" "}
-          Skills{" "}
-        </button>
-      </MenuItem>
-      <MenuItem>
-        <button md-menu-item onClick={() => scrollElement("experience")}>
-          {" "}
-          Experience{" "}
-        </button>
-      </MenuItem>
-      <MenuItem>
-        <button md-menu-item onClick={() => scrollElement("education")}>
-          {" "}
-          Education{" "}
-        </button>
-      </MenuItem>
-      <MenuItem>
-        <button md-menu-item onClick={() => scrollElement("portfolio")}>
-          {" "}
-          Portfolio{" "}
-        </button>
-      </MenuItem>
-    </MenuList>
+  const menu = (
+    <Menu>
+      <MenuHandler>
+        <Bars3Icon className="h-6 w-6 text-white" />
+      </MenuHandler>
+      <MenuList>
+        <MenuItem onClick={() => scrollElement("background")}>
+          Contact
+        </MenuItem>
+        <MenuItem onClick={() => scrollElement("skills")}>
+          Skills
+        </MenuItem>
+        <MenuItem onClick={() => scrollElement("experience")}>
+          Experience
+        </MenuItem>
+        <MenuItem onClick={() => scrollElement("education")}>
+          Education
+        </MenuItem>
+      </MenuList>
+    </Menu>
   );
   const contactIcons = (
     <>
-      <a href="mailto:matt@matthewmmorrow.com">
+      <a href={"mailto:" + resume.email}>
         <EnvelopeOpenIcon className="h-6 w-6 inline" />
       </a>
-      <a href="http://linkedin.com/in/matthewmmorrow" className="inline">
+      <a href={resume.linkedin} className="inline">
         <img
           className="h-6 w-6 m-0 invert inline"
           alt="linkedin"
           src="images/linkedin.png"
         />
       </a>
-      <Tooltip content="518-881-7181">
+      <Tooltip content={resume.phone}>
         <PhoneIcon className="h-6 w-6 prose-gray inline" />
       </Tooltip>
     </>
@@ -75,12 +73,7 @@ function App() {
   return (
     <>
       <div className="fixed top-4 left-4 border border-white rounded">
-        <Menu>
-          <MenuHandler>
-            <Bars3Icon className="h-6 w-6 text-white" />
-          </MenuHandler>
-          {menuList}
-        </Menu>
+        {menu}
       </div>
       <div
         id="background"
@@ -88,8 +81,8 @@ function App() {
       >
         <div className="flex flex-col justify-center items-center prose h-full w-full invert">
           <h2 className="italic">You've Found</h2>
-          <h1>Matthew M Morrow</h1>
-          <h2 className="italic">Developer Extraordinaire</h2>
+          <h1>{resume.name}</h1>
+          <h2 className="italic">{resume.tagline}</h2>
           <h3 className="italic">{yearsOfExperience}+ Years of Experience</h3>
           <h3 className="italic">{yearsRemote}+ Years Remote</h3>
           <span>Contact Me</span>
@@ -102,33 +95,18 @@ function App() {
             id="headerMenu"
             className="top-4 left-4 border border-white rounded w-min text-left"
           >
-            <Menu>
-              <MenuHandler>
-                <Bars3Icon className="h-6 w-6 text-white" />
-              </MenuHandler>
-              {menuList}
-            </Menu>
+            {menu}
           </div>
         </div>
         <div className="flex-auto invert prose text-center">
-          <h2 id="headerName">Matthew M Morrow</h2>
+          <h2 id="headerName">{resume.name}</h2>
         </div>
         <div id="headerContact" className="flex-1 invert text-right">
           {contactIcons}
         </div>
       </nav>
       <div id="personal-statement" className="prose max-w-none p-4">
-        <p>
-          My drive is to satisfy my passion for technology by learning new
-          skills and applying them to fascinating problems. Finding solutions
-          outside of the box or tracking that elusive bug make each day a
-          rewarding puzzle.
-        </p>
-        <p>
-          I've been fully remote for over 10 years. It takes dedication and
-          habit to maintain great teamwork and a great work-life balance but I
-          wouldn't change it at all.
-        </p>
+        {resume.personalStatements.map((statement)=>{return <p>{statement}</p>})}
       </div>
       <div id="content" className="prose max-w-none p-2">
         <h2 id="skills">Skills</h2>
@@ -155,6 +133,17 @@ function App() {
           Hey, you've read this far, you should contact me.
         </h2>
         <div className="flex-1 invert">{contactIcons}</div>
+        <small className="invert">
+          <a href="https://github.com/matthewmmorrow/matthewmmorrow.com" className="flex justify-center content-center italic my-2">
+            <span>Made with TypeScript, ReactJS, and TailwindCSS</span>
+            <img
+              className="h-4 w-4 my-0 mx-1 invert inline"
+              alt="github"
+              src="images/github.png"
+            />
+          </a>
+        </small>
+
       </div>
     </>
   );

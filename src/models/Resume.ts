@@ -3,6 +3,12 @@ import { Experience } from "./Experience";
 import { Skill } from "./Skill";
 
 export type Resume = {
+  name: string,
+  tagline: string,
+  email: string,
+  phone: string,
+  linkedin: string,
+  personalStatements: string[],
   skills: Skill[];
   education: Education[];
   experiences: Experience[];
@@ -11,6 +17,20 @@ export type Resume = {
 };
 
 export const MyResume: Resume = {
+  name: "Matthew M Morrow",
+  tagline: "Developer Extraordinaire",
+  email: "matt@matthewmmorrow.com",
+  phone: "518-881-7181",
+  linkedin: "http://linkedin.com/in/matthewmmorrow",
+  personalStatements: [
+    "My drive is to satisfy my passion for technology by learning new " +
+    "skills and applying them to fascinating problems. Finding solutions " +
+    "outside of the box or tracking that elusive bug make each day a " +
+    "rewarding puzzle.",
+    "I've been fully remote for the majority of my career. It takes dedication and " +
+    "habit to maintain great teamwork and a great work-life balance but I " +
+    "wouldn't change it at all.",
+  ],
   skills: [
     { name: "C#", years: 20, image: "images/csharp.png" },
     { name: "SQL", years: 20, image: "images/sql.png" },
