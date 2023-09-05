@@ -5,7 +5,8 @@
 @tailwind utilities;
 
 #background {
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../public/images/sunset.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../public/images/sunset.jpg");
   background-position-x: right;
   background-position-y: center;
   background-size: cover;
@@ -17,7 +18,7 @@
 }
 
 .logo {
-  margin-left:auto;
+  margin-left: auto;
   background-repeat: no-repeat;
   background-size: contain;
   flex: 1 1 0;
@@ -27,7 +28,7 @@
 }
 
 * {
-  font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: Roboto, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .App {
