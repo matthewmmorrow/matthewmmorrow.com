@@ -48,9 +48,16 @@ export const MyResume: Resume = {
   ],
   experiences: [
     {
+      name: "Amazon Web Services",
+      title: "Software Development Engineer II",
+      years: "2022 to Present",
+      description: "",
+      image: "images/aws.png",
+    },
+    {
       name: "Paylocity",
-      title: "Software Engineer & Dev Lead",
-      years: "2014 to Present",
+      title: "Staff Software Engineer & Dev Lead",
+      years: "2014 to 2022",
       description: "",
       image: "images/paylocity.png",
     },
